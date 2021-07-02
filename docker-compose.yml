@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  mariadb:
+    build: ./database/
+    ports:
+      - 3377:3306
+    environment: 
+      MYSQL_ROOT_PASSWORD: S3cret
+      MYSQL_DATABASE: mysql
+
+  finance:
+    build: ./finance/
+    ports:
+      - 5001:5001
+    links:   
+      - lenses
+    depends_on:
+      - consultation
+      - lenses
+      - mariadb
+    environment: 
+      PYTHONUNBUFFERED: 1
+      FLASK_ENV: development
+      KAFKA_BROKER_URI: lenses:9092
+      DATABASE_URI: mysql+pymysql://icl_fina_user:iclpassword@mariadb:3306/icl_finance
+
+  consultation:
+    build: ./consultation/
+    links:   
+      - lenses
+    depends_on:
+      - lenses
+      - mariadb
+    ports:
+      - 5000:5000
+    environment: 
+      PYTHONUNBUFFERED: 1
+      FLASK_ENV: development
+      KAFKA_BROKER_URI: lenses:9092
+      DATABASE_URI: mysql+pymysql://icl_cons_user:iclpassword@mariadb:3306/icl_consultation
+
+  lenses:
+    image: landoop/fast-data-dev
+    ports:
+      - 3030:3030
+      - 9092:9092
+      - 8081:8081
+    environment:
+      RUNNING_SAMPLEDATA: 0
+      SAMPLEDATA: 0
+      RUNTESTS: 0      
