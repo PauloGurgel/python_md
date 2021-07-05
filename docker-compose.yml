@@ -14,39 +14,50 @@ services:
     ports:
       - 5001:5001
     links:   
-      - lenses
+      - kafka
     depends_on:
       - consultation
-      - lenses
+      - kafka
       - mariadb
     environment: 
       PYTHONUNBUFFERED: 1
-      FLASK_ENV: development
-      KAFKA_BROKER_URI: lenses:9092
+      FLASK_ENV: presentation
+      KAFKA_BROKER_URI: kafka:9092
       DATABASE_URI: mysql+pymysql://icl_fina_user:iclpassword@mariadb:3306/icl_finance
 
   consultation:
     build: ./consultation/
     links:   
-      - lenses
+      - kafka
     depends_on:
-      - lenses
+      - kafka
       - mariadb
     ports:
       - 5000:5000
     environment: 
       PYTHONUNBUFFERED: 1
-      FLASK_ENV: development
-      KAFKA_BROKER_URI: lenses:9092
+      FLASK_ENV: presentation
+      KAFKA_BROKER_URI: kafka:9092
       DATABASE_URI: mysql+pymysql://icl_cons_user:iclpassword@mariadb:3306/icl_consultation
 
-  lenses:
-    image: landoop/fast-data-dev
-    ports:
-      - 3030:3030
-      - 9092:9092
-      - 8081:8081
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
     environment:
-      RUNNING_SAMPLEDATA: 0
-      SAMPLEDATA: 0
-      RUNTESTS: 0      
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 22181:2181
+  
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    ports:
+      - 29092:29092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1      

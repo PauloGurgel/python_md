@@ -1,10 +1,15 @@
+import logging
 import os
 from datetime import date, datetime
 from decimal import Decimal
 
 from flask import Flask
 from flask.json import JSONEncoder
+
 from app.config import Config, profile
+
+
+logger = logging.getLogger('iclinic_finance')
 
 
 class CustomJSONEncoder(JSONEncoder):
@@ -39,7 +44,7 @@ def create_app(config_profile='') -> Flask:
 
     appcfg = profile[environment]
     app.config.from_object(appcfg)
-    print(f'Profile {type(appcfg)} and URI: {appcfg.SQLALCHEMY_DATABASE_URI}')
+    logger.info(f'Profile {type(appcfg)} and URI: {appcfg.SQLALCHEMY_DATABASE_URI}')
 
     appcfg.init_app(app)
     app.json_encoder = CustomJSONEncoder
@@ -51,3 +56,5 @@ def create_app(config_profile='') -> Flask:
     app.register_blueprint(views.main_views)
 
     return app
+
+

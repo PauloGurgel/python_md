@@ -1,7 +1,11 @@
+import logging
 from decimal import Decimal
 
 from app.domain import model
 from app.services import unit_of_work
+
+
+logger = logging.getLogger('iclinic_finance')
 
 
 def create_new_appointment(appointment_id: str,
@@ -10,7 +14,7 @@ def create_new_appointment(appointment_id: str,
 
     with uow:
         appointment = uow.appointments.get(appointment_id=appointment_id)
-        print(f"Found appointment: {appointment}")
+        logger.info(f"Found appointment: {appointment}")
 
         if appointment is None:  # Idempotency check
             uow.appointments.add(model.Appointment(appointment_id=appointment_id, price=price))
