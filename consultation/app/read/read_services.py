@@ -1,5 +1,3 @@
-import uuid
-from datetime import datetime
 from typing import List
 
 from app.adapters import orm

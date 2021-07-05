@@ -1,4 +1,5 @@
 import os
+import logging
 from datetime import date, datetime
 from decimal import Decimal
 
@@ -8,6 +9,9 @@ from flask import Flask
 from flask.json import JSONEncoder
 
 from app.config import Config, profile
+
+
+logger = logging.getLogger('iclinic_consultation')
 
 
 class CustomJSONEncoder(JSONEncoder):
@@ -31,14 +35,22 @@ class CustomJSONEncoder(JSONEncoder):
 
 
 def create_kafka_topics():
-    print(f"Creating topics on {Config.KAFKA_BROKER_URI}")
+    logger.info(f"Creating topics on {Config.KAFKA_BROKER_URI}")
     admin_client = AdminClient({
         "bootstrap.servers": Config.KAFKA_BROKER_URI
     })
 
     topic_list = [NewTopic(Config.CONSULTATION_CLOSED_EVENT_TOPIC, 1, 1),
                   NewTopic(Config.APPOINTMENT_CREATED_EVENT_TOPIC, 1, 1)]
-    admin_client.create_topics(topic_list)
+    fs = admin_client.create_topics(topic_list)
+
+    for topic, f in fs.items():
+        try:
+            f.result()  # The result itself is None
+            logger.info("Topic {} created".format(topic))
+        except Exception as e:
+            logger.info("Failed to create topic {}: {}".format(topic, e))
+    logger.info(f'{topic_list} should be created by now')
 
 
 def create_app(config_profile='') -> Flask:
@@ -50,12 +62,11 @@ def create_app(config_profile='') -> Flask:
         environment = config_profile
 
     app = Flask(__name__)
-
     appcfg = profile[environment]
     app.config.from_object(appcfg)
-    print(f'Profile {type(appcfg)} and URI: {appcfg.SQLALCHEMY_DATABASE_URI}')
-
     appcfg.init_app(app)
+
+    logger.info(f'Profile {type(appcfg)} and URI: {appcfg.SQLALCHEMY_DATABASE_URI}')
     app.json_encoder = CustomJSONEncoder
 
     from app.adapters import orm

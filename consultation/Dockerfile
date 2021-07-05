@@ -1,11 +1,11 @@
-FROM python:3.8-slim
+FROM ubuntu:latest
 
 COPY . /var/www
 WORKDIR /var/www
 
 RUN apt-get clean \
     && apt-get -y update
-RUN apt-get -y install python3-dev libssl-dev\
+RUN apt-get -y install python3.8 python3-pip python3.8-dev libssl-dev\
     && apt-get -y install build-essential libpq-dev librdkafka-dev wget tar
 
 EXPOSE 5000

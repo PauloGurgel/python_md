@@ -1,6 +1,8 @@
+import logging
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+logger = logging.getLogger('iclinic_consultation')
 
 
 class Config:
@@ -33,7 +35,7 @@ class Config:
         env = os.environ.get('FLASK_ENV')
         appcfg = profile[env]
         uri = appcfg.SQLALCHEMY_DATABASE_URI
-        print(f"URL for {env} was required {uri}")
+        logger.info(f"URL for {env} was required {uri}")
         return uri
 
 
