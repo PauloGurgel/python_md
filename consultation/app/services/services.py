@@ -30,5 +30,4 @@ def close_consultation(consultation_id: str, end_date: datetime, uow: unit_of_wo
         consultation.close(end_date=end_date)
         uow.consultations.add(consultation)
         uow.commit()
-
-    return consultation_id
+        return consultation

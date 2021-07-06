@@ -1,6 +1,4 @@
 
-C
-app/adapters/orm.py,9\5\958c03e2c26bd9bd382c8b8b0d6ce5eff3f2263e
 J
 app/adapters/repository.py,0\3\0304d7e41180723a15e4968668ec056c3500412e
 F
@@ -19,3 +17,13 @@ D
 requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
 L
 app/services/unit_of_work.py,3\8\38097ddea56003084692837e199836844f0f452e
+C
+app/domain/model.py,2\8\2891be10df961656611b83a544eca5b1d0ab037f
+8
+start.sh,9\d\9dcf658ee8180c343527e6fa4612975d22036004
+8
+wsgi.ini,a\2\a2f3a20eecf47407598e6c75a75205a829c247a5
+I
+app/read/read_services.py,d\c\dceeb2fad43f2b1f16cee0bf9de61d256086d441
+H
+app/adapters/listener.py,f\6\f680e556bd01f41a2b22a06551405c1c038411ce

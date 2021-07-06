@@ -7,11 +7,13 @@ from confluent_kafka.admin import AdminClient
 from confluent_kafka.cimpl import NewTopic
 from flask import Flask
 from flask.json import JSONEncoder
+from flask_sqlalchemy import SQLAlchemy
 
 from app.config import Config, profile
 
 
 logger = logging.getLogger('iclinic_consultation')
+db = SQLAlchemy()
 
 
 class CustomJSONEncoder(JSONEncoder):
@@ -65,6 +67,7 @@ def create_app(config_profile='') -> Flask:
     appcfg = profile[environment]
     app.config.from_object(appcfg)
     appcfg.init_app(app)
+    db.init_app(app)
 
     logger.info(f'Profile {type(appcfg)} and URI: {appcfg.SQLALCHEMY_DATABASE_URI}')
     app.json_encoder = CustomJSONEncoder

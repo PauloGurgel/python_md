@@ -27,7 +27,10 @@ class AbstractUnitOfWork(abc.ABC):
         for consultation in self.consultations.seen:
             while consultation.events:
                 event = consultation.events.pop(0)
-                messagebus.handle(event)
+                self._handle(event)
+
+    def _handle(self, event):
+        messagebus.handle(event)
 
     @abc.abstractmethod
     def _commit(self):
