@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2596cf72-cc3b-423d-b77c-6dbfe8826fa9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../consultation/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consultation/app/adapters/logger_context.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/adapters/logger_context.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/0/3/0304d7e41180723a15e4968668ec056c3500412e" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consultation/app/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consultation/app/tests/fake_factory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consultation/app/tests/pytest.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consultation/app/tests/test_date_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consultation/app/tests/test_domain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../consultation/app/tests/test_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consultation/.idea/consultation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/.idea/consultation.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/1/5/15b0ad30dd4cc399ce4a2eaa72eb31d897752877" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/1/9/19359a61ae2446b51b549167b014da2fcf265768" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/2/8/2891be10df961656611b83a544eca5b1d0ab037f" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/3/8/38097ddea56003084692837e199836844f0f452e" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/4/6/46bca3c4456d4204689761ad4ae54a69b9f8397b" beforeDir="false" />
@@ -17,47 +20,28 @@
       <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/7/2/729d216011a0bfae416118cef3593dc8b8f28fe0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/8/8/8887832f081acb317131b0c0c46ecea419e912f3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/8/8/88cbfdf39f345eb9be0576c2bde2f131db2fa563" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/8/f/8f83503e5cf2fb2cdb035595942d392812f89bcc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/9/5/958c03e2c26bd9bd382c8b8b0d6ce5eff3f2263e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/9/d/9dcf658ee8180c343527e6fa4612975d22036004" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/a/2/a2f3a20eecf47407598e6c75a75205a829c247a5" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/d/c/dceeb2fad43f2b1f16cee0bf9de61d256086d441" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/e/4/e455b71ce56a02eb2baf1c1e4fea2d900027e3d3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/e/6/e60aa41098e887ed72d36a6b2fa236677648e25d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/f/1/f1bdda93d9a278e358509d498e17d97764c1fb29" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consultation/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../consultation/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consultation/app/adapters/kafka_producer.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/app/adapters/kafka_producer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consultation/app/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/app/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consultation/app/read/read_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/app/read/read_services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consultation/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consultation/wsgi.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/wsgi.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consultation/app/services/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/app/services/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consultation/app/services/unit_of_work.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/app/services/unit_of_work.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consultation/app/utils/date_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/app/utils/date_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consultation/app/views/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/app/views/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consultation/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../consultation/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/5/15b0ad30dd4cc399ce4a2eaa72eb31d897752877" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/8/2891be10df961656611b83a544eca5b1d0ab037f" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/6/6651ddff6eb82c840ced7c1dddee15c6e1913dd4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/b/6b5a07a517e9a3845a279675e888c81b77b9d712" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/2/729d216011a0bfae416118cef3593dc8b8f28fe0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/8/8887832f081acb317131b0c0c46ecea419e912f3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/d/9dcf658ee8180c343527e6fa4612975d22036004" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/2/a2f3a20eecf47407598e6c75a75205a829c247a5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dceeb2fad43f2b1f16cee0bf9de61d256086d441" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/5/958c03e2c26bd9bd382c8b8b0d6ce5eff3f2263e" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e455b71ce56a02eb2baf1c1e4fea2d900027e3d3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/6/e60aa41098e887ed72d36a6b2fa236677648e25d" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/1/f1bdda93d9a278e358509d498e17d97764c1fb29" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/6/f680e556bd01f41a2b22a06551405c1c038411ce" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/adapters/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/adapters/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/adapters/kafka_producer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/adapters/kafka_producer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/adapters/listener.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/adapters/listener.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wsgi.ini" beforeDir="false" afterPath="$PROJECT_DIR$/wsgi.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,8 +140,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Flask server.Flask (main.py)" />
       <item itemvalue="Python.main" />
+      <item itemvalue="Flask server.Flask (main.py)" />
     </list>
     <recent_temporary>
       <list>
@@ -176,7 +160,8 @@
       <workItem from="1625101496498" duration="3000" />
       <workItem from="1625101557108" duration="8690000" />
       <workItem from="1625227977696" duration="9891000" />
-      <workItem from="1625260994571" duration="11733000" />
+      <workItem from="1625260994571" duration="12581000" />
+      <workItem from="1625586871787" duration="603000" />
     </task>
     <servers />
   </component>

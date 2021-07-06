@@ -40,8 +40,9 @@ def close():
     data = request.get_json()
     consultation_id = data['id']
     end_date = parse_date(data['end_date'])
-    updated_id = services.close_consultation(consultation_id=consultation_id,
-                                             end_date=end_date,
-                                             uow=unit_of_work.SqlAlchemyUnitOfWork())
+    consultation = services.close_consultation(consultation_id=consultation_id,
+                                               end_date=end_date,
+                                               uow=unit_of_work.SqlAlchemyUnitOfWork())
+    updated_id = consultation.id
 
     return redirect(url_for('main.query_one_consultation', consulting_id=updated_id)), 201
